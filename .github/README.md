@@ -1,9 +1,9 @@
-cheatsheets
-===========
-This repository contains community-sourced cheatsheets to be used with
-[cheat][] and similar applications.
+# cheatsheets
 
-### Format ###
+This repository was forked from [cheatsheets](https://github.com/cheat/cheatsheets) and then changed to fit my needs. These cheatsheets are to be used with [cheat](https://github.com/cheat/cheat) and similar applications.
+
+## Format
+
 Cheatsheets are plain-text files that begin with an optional "front matter"
 header in YAML format. The header may be used to assign "tags" to a sheet, and
 to specify the sheet's syntax (`bash`, `python`, `go`, etc).
@@ -27,7 +27,8 @@ parameter placeholders. In edge-cases where that syntax may cause confusion, it
 is permissible to use placeholder values (`foo.txt`, `example.com`, etc.) as
 necessary.
 
-### License ###
+## License
+
 Cheatsheets are licensed under [Creative Commons CC0 1.0][cc0]. See
 [LICENSE.txt][] for the full license text.
 

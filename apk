@@ -2,7 +2,7 @@
 tags: [ packaging ]
 ---
 # To install a package:
-apk add <package>
+apk add --update <package>
 
 # To remove a package:
 apk del <package>
