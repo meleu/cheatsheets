@@ -1,6 +1,11 @@
 ---
 tags: [ job, scheduler, periodic ]
 ---
+# crontab for the current user
+crontab -e
+# Linux Mint: the file will be stored at /var/spool/cron/crontabs/$USER
+
+# ---
 # set a shell
 SHELL=/bin/bash
 
