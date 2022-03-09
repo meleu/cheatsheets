@@ -1,6 +1,6 @@
 # best way to get the full path where the script is placed
 # (works even if the script is sourced)
-DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 
 
 # read a file line by line
@@ -9,15 +9,32 @@ while IFS= read -r line || [[ -n "${line}" ]]; do
 done
 
 
+# create a lockfile:
+( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
+
+
 # Retrieve N-th piped command exit status:
 printf 'foo' | grep 'foo' | sed 's/foo/bar/'
 echo ${PIPESTATUS[0]}  # replace 0 with N
 
 
-# create a lockfile:
-( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
+###############################################################################
+# bash debugging
+###############################################################################
+# If you have a complicated mess of scripts, change PS4 before setting -x:
+PS4='+$BASH_SOURCE:$LINENO:$FUNCNAME: '
 
 
+# Step your code.
+# The following code uses the DEBUG trap to inform the user about what command
+# is about to be executed and wait for his confirmation to do so. Put the trap
+# in your script, at the location you wish to begin stepping (note: it doesn't
+# go inside function calls):
+debug_prompt () { read -p "[$BASH_SOURCE] $BASH_COMMAND?" _ ;}
+trap 'debug_prompt "$_"' DEBUG
+
+
+###############################################################################
 # Parameter Expansion
 ###############################################################################
 ${#parameter}       # The length in characters. If 'parameter' is an array,
@@ -53,3 +70,4 @@ ${parameter/#pat/string} # As above, but matched against the beginning.
                     # "${array[@]/#/prefix}".
 ${parameter/%pat/string} # As above, but matched against the end.
                     # Useful for adding a common suffix with a null pattern. 
+

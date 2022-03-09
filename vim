@@ -2,71 +2,59 @@
 tags [ vim ]
 ---
 
+# search
+
+*     search the word in the cursor
+\#    search the word in the cursor backwards
+
+
+# movement
+
+{         top of the current paragraph
+}         bottom of the current paragraph
+H, M, L   (High, Middle, Low) top, middle, bottom of the viewport
+f{char}   find a char forward in the line ('F' goes backward)
+t{char}   find a char forward in line and move right before it ('T' backward)
+;         repeat last f, F, t or T command
+,         repeat last f, F, t or T command, but in opposite direction
+m{char}   mark the current line as {char}
+\'{char}   go to the line marked as {char}
+m{CHAR}   mark the current line in the specific file as {CHAR}
+
+
+# text objects
+
+tip 1 : prefer using text-objects rather than motions in
+        order to increase repeatability (see ':h text-objects').
+tip 2 : practice using 'v' (visual).
+note  : the combinations below are intended to be used AFTER an
+        action key (e.g.: 'diw' delete inner word).
+
+iw, aw    "inner word", "a word" ('a' includes space)
+ip, ap    "inner paragraph"...
+is, as    "inner sentence "...
+i), a)    "inner parenthesis", 'a' includes surrounding ')' (same for { and [)
+i", a"    "inner quotes"... (same for single quote)
+it, at    "inner tag" (HTML tag)
+
+
 # File management
 
 :e              reload file
-:q              quit
-:q!             quit without saving changes
-:w              write file
-:w {file}       write new file
 :x              write file and exit
 
-# Movement
-
-    k
-  h   l         basic motion
-    j
-
-w               next start of word
-W               next start of whitespace-delimited word
-e               next end of word
-E               next end of whitespace-delimited word
-b               previous start of word
-B               previous start of whitespace-delimited word
-0               start of line
-$               end of line
-gg              go to first line in file
-G               go to end of file
-gk		move down one displayed line
-gj		move up one displayed line
 
 # Insertion
 #   To exit from insert mode use Esc or Ctrl-C
 #   Enter insertion mode and:
 
-a               append after the cursor
-A               append at the end of the line
-i               insert before the cursor
-I               insert at the beginning of the line
-o               create a new line under the cursor
-O               create a new line above the cursor
-R               enter insert mode but replace instead of inserting chars
 :r {file}       insert from file
 
-# Editing
 
-u               undo
-yy              yank (copy) a line
-y{motion}       yank text that {motion} moves over
-p               paste after cursor
-P               paste before cursor
-<Del> or x      delete a character
-dd              delete a line
-d{motion}       delete text that {motion} moves over
 
-# Search and replace with the `:substitute` (aka `:s`) command
+# ---[ from the original cheatsheet ]---
 
-:s/foo/bar/	replace the first match of 'foo' with 'bar' on the current line only
-:s/foo/bar/g	replace all matches (`g` flag) of 'foo' with 'bar' on the current line only
-:%s/foo/bar/g	replace all matches of 'foo' with 'bar' in the entire file (`:%s`)
-:%s/foo/bar/gc	ask to manually confirm (`c` flag) each replacement 
 
-# Preceding a motion or edition with a number repeats it 'n' times
-# Examples:
-50k         moves 50 lines up
-2dw         deletes 2 words
-5yy         copies 5 lines
-42G         go to line 42
 
 # Multiple windows
 :e filename      - edit another file

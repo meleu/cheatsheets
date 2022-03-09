@@ -1,0 +1,20 @@
+# some predefined CI variables
+# complete list: https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+###############################################################################
+CI_API_V4_URL
+
+CI_COMMIT_AUTHOR    
+
+CI_COMMIT_BRANCH      available in branch pipelines, not in MR/tag pipelines
+
+CI_COMMIT_REF_NAME    branch or tag name (useful to use in MR pipelines)
+
+CI_COMMIT_SHA         the commit hash
+
+CI_COMMIT_SHORT_SHA   first 8 characters of CI_COMMIT_SHA
+
+CI_JOB_IMAGE          docker image running the job
+
+CI_MERGE_REQUEST_IID  project level internal ID of a MR (unique in the project)
+
+CI_PROJECT_ID

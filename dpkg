@@ -1,6 +1,9 @@
 ---
 tags: [ packaging ]
 ---
+# what package caused the installation of a command:
+dpkg -S 'command'
+
 # To install or upgrade a package:
 dpkg -i <deb-file>
 
