@@ -13,5 +13,11 @@ cheat -s <command>
 # To get the current `cheat' version
 cheat -v
 
-# push your cheatsheets changes to their repositories
+# install a simple script to pull/push your cheatsheets
+mkdir -p ~/.local/bin
+wget -O ~/.local/bin/cheatsheets https://raw.githubusercontent.com/cheat/cheat/master/scripts/git/cheatsheets
+chmod +x ~/.local/bin/cheatsheets
 
+# pull/push your cheatsheets changes
+cheatsheets pull
+cheatsheets push
