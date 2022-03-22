@@ -12,3 +12,6 @@ cheat -s <command>
 
 # To get the current `cheat' version
 cheat -v
+
+# push your cheatsheets changes to their repositories
+
