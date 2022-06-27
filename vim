@@ -1,22 +1,77 @@
 ---
 tags [ vim ]
 ---
+# cool combos
+xp      transpose characters
+yis     copy current sentence
+yip     copy current paragraph
+ggVGy   copy the whole file
+gd      Go to the Declaration of the variable under the cursor
+
+
+# things I want to memorize now
+###############################################################################
+
+# visual-block
+^v    enter the visual block mode (column editing)
+
+# text objects (see also :help Q_to)
+# each one must be preceded by 'i' (inner) or 'a' (include boundaries)
+w     word
+s     sentence
+p     paragraph
+t     xml <tag></tag>
+\",\',` quoted strings
+[,]   blocks with [brackets]
+(,)   blocks with (parenthesis)
+{,}   blocks with {curly brackets}
+<,>   blocks with <parenthesis>
+i     indentation (plugin: vim-textobj-indent)
+l     line without leading white spaces (plugin: vim-textobj-line)
+
+# windows
+:new      creates a new horizontal split
+:vnew     creates a new vertical split
+:split    open a file in a horizontal split
+:vsplit   open a file in a vertical split
+
+^w [hjkl]   move cursor between windows
+^w [HJKL]   move the current window
+^w [+-]     resize vertically
+^w [<>]     resize horizontally
+^w =        rebalance windows sizes
+^w T        break current window in a new tab
+
+
+# tabs
+:tabnew                   creates an empty tab
+:tabedit <filename.ext>   opens a file in a new tab
+
+gt,gT           move between tabs forward,backward
+
+###############################################################################
 
 # search
 
 *     search the word in the cursor
 \#    search the word in the cursor backwards
+gd    Go to the Declaration of the variable under the cursor
 
 
 # movement
 
-{         top of the current paragraph
-}         bottom of the current paragraph
+^f,^b     scroll one screen forward(down)/backward(up)
+(, )      start/end of the current sentence
+{, }      top/bottom of the current paragraph
+[[, ]]    previous/next section (useful in markdown)
+[{, ]}    open/closing braces of the current code block
 H, M, L   (High, Middle, Low) top, middle, bottom of the viewport
+zz        scroll the window putting the contents in the cursor in the center
+zt, zb    same as above, but putting in the Top/Bottom
 f{char}   find a char forward in the line ('F' goes backward)
 t{char}   find a char forward in line and move right before it ('T' backward)
 ;         repeat last f, F, t or T command
-,         repeat last f, F, t or T command, but in opposite direction
+,         same as above, but in opposite direction
 m{char}   mark the current line as {char}
 \'{char}   go to the line marked as {char}
 m{CHAR}   mark the current line in the specific file as {CHAR}
@@ -37,7 +92,6 @@ i), a)    "inner parenthesis", 'a' includes surrounding ')' (same for { and [)
 i", a"    "inner quotes"... (same for single quote)
 it, at    "inner tag" (HTML tag)
 
-
 # File management
 
 :e              reload file
@@ -45,7 +99,7 @@ it, at    "inner tag" (HTML tag)
 
 
 # Insertion
-#   To exit from insert mode use Esc or Ctrl-C
+#   To exit from insert mode use Esc or ^C
 #   Enter insertion mode and:
 
 :r {file}       insert from file
@@ -59,11 +113,11 @@ it, at    "inner tag" (HTML tag)
 # Multiple windows
 :e filename      - edit another file
 :split filename  - split window and load another file
-ctrl-w up arrow  - move cursor up a window
-ctrl-w ctrl-w    - move cursor to another window (cycle)
-ctrl-w_          - maximize current window
-ctrl-w=          - make all equal size
-10 ctrl-w+       - increase window size by 10 lines
+^w up arrow  - move cursor up a window
+^w ^w    - move cursor to another window (cycle)
+^w_          - maximize current window
+^w=          - make all equal size
+10 ^w+       - increase window size by 10 lines
 :vsplit file     - vertical split
 :sview file      - same as split, but readonly
 :hide            - close current window
@@ -86,11 +140,3 @@ ctrl-w=          - make all equal size
 :bunload         - removes buffer from window
 :taball          - open a tab for all buffers
 
-# Pointers back
-ctrl-o
-
-# Pointers forward
-ctrl-o
-
-# Super search
-ctrl-p

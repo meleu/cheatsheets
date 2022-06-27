@@ -1,5 +1,6 @@
-# some predefined CI variables
-# complete list: https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
+# most used gitlab predefined CI variables
+# complete list:
+# https://docs.gitlab.com/ee/ci/variables/predefined_variables.html
 ###############################################################################
 CI_API_V4_URL
 
@@ -13,8 +14,27 @@ CI_COMMIT_SHA         the commit hash
 
 CI_COMMIT_SHORT_SHA   first 8 characters of CI_COMMIT_SHA
 
+CI_COMMIT_TIMESTAMP   first 8 characters of CI_COMMIT_SHA
+
 CI_JOB_IMAGE          docker image running the job
 
 CI_MERGE_REQUEST_IID  project level internal ID of a MR (unique in the project)
 
 CI_PROJECT_ID
+
+CI_PROJECT_NAME
+
+GITLAB_USER_NAME      "Meleu Zord"
+
+GITLAB_USER_LOGIN     "meleu"
+
+# push options
+# complete list:
+# https://docs.gitlab.com/ee/user/project/push_options.html
+###############################################################################
+
+ci.skip         do not create a pipeline
+
+ci.variable="${varName}=${value}"   define a variable to be used in the pipeline
+
+

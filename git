@@ -1,12 +1,36 @@
----
-tags: [ vcs ]
----
-# To set your identity:
-git config --global user.name <name>
-git config --global user.email <email>
+# squashing commits
+###################
+# 1. rebase
+git rebase -i <hash_of_commit_before_first_commit>
+# 2. edit the file like this (pro tip: use ctrl-v on vim):
+# pick hash1
+# squash hash2
+# squash hashN
+# 3. edit the next file with your desired commit message
+# 4. force push
+git push --force origin <branchname>
 
-# To set your editor:
-git config --global core.editor <editor>
+
+# remove local branches which do not exist on the remote
+# tip from: https://gist.github.com/davoam/f32439d2bd786e6a994fe43be4db6b85
+git fetch -p && \
+  LC_ALL=C git branch -vv \
+  | grep ': gone]' \
+  | awk '{print $1}' \
+  | xargs git branch -D 
+
+
+# rename a local branch (mnemonic: -m for "move")
+git branch -m ${oldName} ${newName}
+
+# rename a remote branch (actually create a new branch and dele the old one)
+git push --set-upstream origin ${newName}
+git push --delete origin ${oldName}
+
+
+# from the community cheatsheet
+###############################################################################
+
 
 # To enable color:
 git config --global color.ui true
