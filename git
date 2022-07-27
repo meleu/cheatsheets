@@ -11,6 +11,20 @@ git rebase -i <hash_of_commit_before_first_commit>
 git push --force origin <branchname>
 
 
+# undoing commits
+#################
+# ⚠️ WARNING: use this when the commits were not yet pushed to the remote repo!
+# reverting the last commit but keeping the changes
+git reset HEAD~1
+
+# reverting the last commit and the changes
+git reset --hard HEAD~1
+
+
+# create an empty dummy commit
+git commit --allow-empty -m 'dummy commit'
+
+
 # remove local branches which do not exist on the remote
 # tip from: https://gist.github.com/davoam/f32439d2bd786e6a994fe43be4db6b85
 git fetch -p && \
@@ -31,12 +45,6 @@ git push --delete origin ${oldName}
 # from the community cheatsheet
 ###############################################################################
 
-
-# To enable color:
-git config --global color.ui true
-
-# To stage all changes for commit:
-git add --all
 
 # To stash changes locally, this will keep the changes in a separate changelist
 # called stash and the working directory is cleaned. You can apply changes
