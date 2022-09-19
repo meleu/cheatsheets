@@ -1,14 +1,15 @@
-# To display list of all available commands:
-kubectl -h
+# jsonpath to list the name of Evicted pods
+kubectl get pods \
+  -o jsonpath='{.items[?(@.status.reason == "Evicted")].metadata.name}'
 
-# To display an explanation of a specific command:
-kubectl command_name -h
+# create a deployment.yaml from CLI
+kubectl create deployment DEPLOYMENT --image=IMAGE --dry-run=client -o yaml
+
+# To display all resources in all namespaces:
+kubectl get all -A
 
 # To display complete list of supported resources:
 kubectl api-resources
-
-# To display an explanation of a specific resource:
-kubectl explain resource_name
 
 # To display an explanation of a specific field of resource:
 kubectl explain resource_name.field_name
@@ -18,9 +19,6 @@ kubectl options
 
 # To set up `kubectl` autocomplete in bash (press Tab to use):
 source <(kubectl completion bash)
-
-# To display all resources in all namespaces:
-kubectl get all -A
 
 # To order events by `creationTimestamp`:
 kubectl get events --sort-by='.metadata.creationTimestamp'
