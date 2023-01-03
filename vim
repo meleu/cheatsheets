@@ -8,6 +8,10 @@ yip     copy current paragraph
 ggVGy   copy the whole file
 gd      Go to the Declaration of the variable under the cursor
 
+# fix file indentation from CLI
+# https://stackoverflow.com/q/65318076/6354514
+vim -c 'norm gg=G' -c 'wq' file.ext
+
 
 # things I want to memorize now
 ###############################################################################

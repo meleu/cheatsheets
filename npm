@@ -1,10 +1,11 @@
 ---
 tags: [ packaging ]
 ---
-# Every command shown here can be used with the `-g` switch for global scope
+# update package-lock.json only
+npm install --package-lock-only
 
-# To install a package in the current directory:
-npm install <package>
+
+# Every command shown here can be used with the `-g` switch for global scope
 
 # To install a package, and save it in the `dependencies` section of `package.json`:
 npm install --save <package>

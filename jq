@@ -1,8 +1,12 @@
-# To pretty print the json:
-jq "." < filename.json
+# minify
+jq --compact-output input.json
 
-# To access the value at key "foo":
-jq '.foo'
+# "if" with no "else"
+jq 'if CONDITION then SOMETHING else empty end' input.json
+
+# return empty string if result is `null`
+# -> use '// empty' at the end of the expression
+jq '.EXPRESSION // empty' input.json
 
 # To access first list item:
 jq '.[0]'
