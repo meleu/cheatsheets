@@ -5,27 +5,30 @@ tags [ vim ]
 xp      transpose characters
 yis     copy current sentence
 yip     copy current paragraph
-ggVGy   copy the whole file
+ggyG    copy the whole file
 gd      Go to the Declaration of the variable under the cursor
 
 # fix file indentation from CLI
 # https://stackoverflow.com/q/65318076/6354514
 vim -c 'norm gg=G' -c 'wq' file.ext
 
-
 # things I want to memorize now
 ###############################################################################
 
-# visual-block
-^v    enter the visual block mode (column editing)
+# search in the line
+# capital f and t searches backwards
+f<char>   puts the cursor in the next occurrence of `<char>`
+t<char>   puts the cursor right before the next occurrence of `<char>`
+;         goes to the next occurrence
+,         goes to the previous occurrence
+
 
 # text objects (see also :help Q_to)
 # each one must be preceded by 'i' (inner) or 'a' (include boundaries)
-w     word
 s     sentence
 p     paragraph
 t     xml <tag></tag>
-\",\',` quoted strings
+",',` quoted strings
 [,]   blocks with [brackets]
 (,)   blocks with (parenthesis)
 {,}   blocks with {curly brackets}
@@ -33,7 +36,17 @@ t     xml <tag></tag>
 i     indentation (plugin: vim-textobj-indent)
 l     line without leading white spaces (plugin: vim-textobj-line)
 
+
+# toggle boolean configs: append a '!'
+# example for relativenumber
+:set relativenumber!
+
+# see a value of a config: append a '?'
+:set wrapmargin?
+
+
 # windows
+###############################################################################
 :new      creates a new horizontal split
 :vnew     creates a new vertical split
 :split    open a file in a horizontal split

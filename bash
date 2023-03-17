@@ -1,21 +1,32 @@
+###############################################################################
+# useful for all bash scripts
+###############################################################################
+#!/usr/bin/env bash
+set -Eeo pipefail
+trap 'echo "[ERROR]: ${BASH_SOURCE}:${FUNCNAME}:${LINENO}"' ERR
+
 # best way to get the full path where the script is placed
 # (works even if the script is sourced)
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 
+# load secrets from a '.env' file present in the same dir as the script
+source "${SCRIPT_DIR}/.env" || true # do not break if file not found
 
+###############################################################################
 # read a file line by line
+###############################################################################
 while IFS= read -r line || [[ -n "${line}" ]]; do
   echo "${line}" # do something more interesting here
-done
+done < "${file}"
 
+###############################################################################
+# filling an array with the output of a command
+###############################################################################
+# method 1: one element per line
+mapfile -t myArray < <(myCommand)
 
-# create a lockfile:
-( set -o noclobber; echo > my.lock ) || echo 'Failed to create lock file'
-
-
-# Retrieve N-th piped command exit status:
-printf 'foo' | grep 'foo' | sed 's/foo/bar/'
-echo ${PIPESTATUS[0]}  # replace 0 with N
+# method 2: elements are separated by spaces (delimiters chosen with IFS)
+IFS=' ' read -r -a myArray <<< "$(myCommand)"
 
 
 ###############################################################################
@@ -23,7 +34,6 @@ echo ${PIPESTATUS[0]}  # replace 0 with N
 ###############################################################################
 # If you have a complicated mess of scripts, change PS4 before setting -x:
 PS4='+$BASH_SOURCE:$LINENO:$FUNCNAME: '
-
 
 # Step your code.
 # The following code uses the DEBUG trap to inform the user about what command
