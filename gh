@@ -6,6 +6,9 @@ tags: [ git, github, vcs ]
 # create a public repo with current dir name
 gh repo create --public --source=.
 
+# checkout the code from a Pull Request
+gh pr checkout $PR_NUMBER
+
 # View README.md
 gh repo view
 
