@@ -3,6 +3,9 @@ syntax: bash
 tags: [ git, github, vcs ]
 ---
 
+# create a public repo with current dir name
+gh repo create --public --source=.
+
 # View README.md
 gh repo view
 
