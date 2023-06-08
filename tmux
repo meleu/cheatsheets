@@ -1,55 +1,83 @@
-# To start tmux:
-tmux
+# questions
+##################################################
+# how to increase the amount of time the pane
+# numbers are shown when <prefix>q?
+#
+
+# To reload configuration file
+<prefix> : source-file /path/to/file
+
+# To help screen (Q to quit):
+<prefix> ?
+
+# panes
+##################################################
+# To scroll in a pane:
+<prefix> PageUp/PageDown
+
+# change between panes forward/backward
+<prefix> }
+<prefix> {
+
+# zoom a pane
+<prefix> z
+
+# convert a pane into a window
+<prefix> !
+
+# To kill a pane:
+<prefix> x
+
+# windows
+##################################################
+# quickly preview/navigate through windows/sessions
+<prefix> s
+
+# To go next/previous window:
+<prefix> n # I also configured to 'l'
+<prefix> p # I also configured to 'h'
+
+# To kill a window:
+<prefix> &
+
+# To switch between windows:
+<prefix> [0-9]
+<prefix> Arrows
+
+# To split windows horizontally:
+<prefix> % # I changed to '-'
+
+# To split windows vertically:
+<prefix> " # I changed to '\'
+
+# To swap windows:
+<prefix> :swap-window -s [0-9] -t [0-9]
+
+
+# sessions
+##################################################
+# quickly preview/navigate through windows/sessions
+<prefix> s
 
 # To detach from tmux:
-Ctrl-b d
+<prefix> d
 
 # To restore tmux session:
 tmux attach
 
-# To detach an already attached session (great if you are moving devices with different screen resolutions):
+# To detach an already attached session
+# (great if you are moving devices with different screen resolutions):
 tmux attach -d 
 
 # To display session:
 tmux ls
 
 # To rename session:
-Ctrl-b $
+<prefix> $
 
 # To switch session:
-Ctrl-b s
+<prefix> s
 
 # To start a shared session:
 tmux -S /tmp/your_shared_session
 chmod 777 /tmp/your_shared_session
-
-# To help screen (Q to quit):
-Ctrl-b ?
-
-# To scroll in window:
-Ctrl-b PageUp/PageDown
-
-# To reload configuration file
-Ctrl-b : source-file /path/to/file
-
-# To create a window:
-Ctrl-b c
-
-# To go next window:
-Ctrl-b n
-
-# To destroy a window:
-Ctrl-b x
-
-# To switch between windows:
-Ctrl-b [0-9]
-Ctrl-b Arrows
-
-# To split windows horizontally:
-Ctrl-b %
-
-# To split windows vertically:
-Ctrl-b "
-
-# To swap windows:
-Ctrl-b :swap-window -s [0-9] -t [0-9]

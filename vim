@@ -12,6 +12,9 @@ gd      Go to the Declaration of the variable under the cursor
 # https://stackoverflow.com/q/65318076/6354514
 vim -c 'norm gg=G' -c 'wq' file.ext
 
+# vim's factory settings
+vim -u NONE -N
+
 # things I want to memorize now
 ###############################################################################
 

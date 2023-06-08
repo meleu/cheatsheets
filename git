@@ -1,5 +1,5 @@
 # squashing commits
-###################
+###################################################
 # 1. rebase
 git rebase -i <hash_of_commit_before_first_commit>
 # 2. edit the file like this (pro tip: use ctrl-v on vim):
@@ -10,9 +10,19 @@ git rebase -i <hash_of_commit_before_first_commit>
 # 4. force push
 git push --force origin <branchname>
 
+# deleting branches
+###################################################
+# Branches: To delete the branch <branch>:
+git branch -D <branch>
+
+# Branches: To delete a local <branch>:
+git branch -d <branch>
+
+# Branches: To delete a remote branch <branch>:
+git push --delete origin <branch>
 
 # undoing commits
-#################
+###################################################
 # ⚠️ WARNING: use this when the commits were not yet pushed to the remote repo!
 # reverting the last commit but keeping the changes
 git reset HEAD~1
@@ -20,6 +30,15 @@ git reset HEAD~1
 # reverting the last commit and the changes
 git reset --hard HEAD~1
 
+
+# misc
+###################################################
+#
+# move your changes to a brand new branch
+git switch -c ${newBranch}
+
+# undo latest unstaged changes
+git reset --hard origin/master
 
 # create an empty dummy commit
 git commit --allow-empty -m 'dummy commit'
@@ -123,15 +142,6 @@ git tag -d <tagname>
 
 # To force a push:
 git push -f
-
-# Branches: To delete the branch <branch>:
-git branch -D <branch>
-
-# Branches: To delete a local <branch>:
-git branch -d <branch>
-
-# Branches: To delete a remote branch <branch>:
-git push --delete origin <branch>
 
 # Branches: To delete all branches on remote that are already merged:
 git branch –merged | egrep -v “(^*|main|dev)” | xargs git branch -d

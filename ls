@@ -1,17 +1,20 @@
-# To display everything in <dir>, excluding hidden files:
-ls <dir>
+# Order of last modification. Use -r to reverse the list
+ls -t  
 
-# To display everything in <dir>, including hidden files:
-ls -a <dir>
+# Group files by extension.
+ls -X
 
-# To display all files, along with the size (with unit suffixes) and timestamp
-ls -lh <dir>
+# Sort by file size.
+ls -S
 
-# To display files, sorted by size:
-ls -S <dir>
+# List files recursively.
+ls -R
 
-# To display directories only:
+# Naturally sort version numbers in filenames.
+ls -v
+
+# directories only:
 ls -d */ <dir>
 
-# To display directories only, include hidden:
+# directories only, include hidden:
 ls -d .*/ */ <dir>

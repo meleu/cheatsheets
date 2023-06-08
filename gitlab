@@ -22,7 +22,11 @@ CI_COMMIT_TIMESTAMP   first 8 characters of CI_COMMIT_SHA
 
 CI_JOB_IMAGE          docker image running the job
 
-CI_MERGE_REQUEST_IID  project level internal ID of a MR (unique in the project)
+CI_MERGE_REQUEST_IID  project-level internal ID of a MR (unique in the project)
+
+CI_PIPELINE_IID       project-level internal ID of current pipeline
+
+CI_PIPELINE_URL       URL for pipeline details
 
 CI_PROJECT_ID
 

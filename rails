@@ -1,0 +1,35 @@
+# create new app (no ActiveStorage and no Action MailBox)
+rails new ${app_name} \
+  --skip-active-storage \
+  --skip-action-mailbox
+
+# launch the server
+rails server
+
+# generate a new controller
+rails generate controller ${controller_name}
+
+# check routes
+rails routes
+
+
+# create a blog project
+######################################################################
+rails new blog
+cd blog
+
+rails generate model BlogPost title:string body:text
+
+# edit the migrations and/or the model to add default values or validations
+
+rails db:migrate
+
+rails console --sandbox # to play with the model
+# try:
+# post = BlogPost.new
+# post.valid?
+# post.errors.message
+
+rails generate controller BlogPosts
+
+

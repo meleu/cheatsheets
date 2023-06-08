@@ -1,8 +1,28 @@
-# find *.txt and remove
-find ./path/ -name '*.txt' -exec rm '{}' \;
+# repeat a command for each file found
+# {} is replaced with the filename
+find -name MY_FILE -exec myCommand {} \;
 
-# find all files in the current directory and modify their permissions:
-find . -type f -exec chmod 644 {} \;
+# put all results and execute the command only once
+# (in most cases this is better than using xargs)
+find -name MY_FILE -exec myCommand {} +
+
+# ignore contents of .git/ directory
+find -not -iwholename '*/\.git/*'
+
+# find *.txt and remove
+find ./path/ -name '*.txt' -delete
+
+# output be like 'ls -l' and sort by column 11
+find -ls | sort -k 11
+
+# find files with paths matching the pattern
+find -path '*test*' # -ipath to ignore case
+
+# find files edited within last five days
+find -mtime -5 # +5 for files edited before five days
+
+# find files more recently modified than <FILE>
+find -newer <FILE>
 
 # octal permissions
 find . -type f -perm 777
@@ -32,9 +52,6 @@ find . -type d -empty -exec rmdir {} \;
 
 # To search for directories named build at a max depth of 2 directories:
 find . -maxdepth 2 -name build -type d
-
-# To search all files who are not in .git directory:
-find . ! -iwholename '*.git*' -type f
 
 # To find all files that have the same node (hard link) as MY_FILE_HERE:
 find . -type f -samefile MY_FILE_HERE 2>/dev/null
