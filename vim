@@ -1,5 +1,5 @@
 ---
-tags [ vim ]
+tags: [ vim ]
 ---
 # cool combos
 xp      transpose characters

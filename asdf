@@ -24,4 +24,3 @@ asdf install "$plugin" "$version"
 
 # define the global version
 asdf global "$plugin" "$version"
-

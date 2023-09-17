@@ -9,6 +9,9 @@ gh repo create --public --source=.
 # checkout the code from a Pull Request
 gh pr checkout $PR_NUMBER
 
+# create a gist (default is private)
+gh gist create $FILE
+
 # View README.md
 gh repo view
 
