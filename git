@@ -1,3 +1,23 @@
+# commit piece by piece
+git commit -p
+
+# copia fiel do repositorio remoto
+git reset --hard <remote>/<branch_name>
+
+# remove file from git history
+# (remove secrets and/or sensitive data from history)
+git filter-branch --index-filter \
+  'git rm -rf --cached --ignore-unmatch ${path_to_file}' HEAD
+
+# undoing commits
+###################################################
+# ⚠️ WARNING: use this when the commits were not yet pushed to the remote repo!
+# reverting the last commit but keeping the changes
+git reset HEAD~1
+
+# reverting the last commit and the changes
+git reset --hard HEAD~1
+
 # squashing commits
 ###################################################
 # 1. rebase
@@ -28,15 +48,6 @@ git branch -d <branch>
 
 # Branches: To delete a remote branch <branch>:
 git push --delete origin <branch>
-
-# undoing commits
-###################################################
-# ⚠️ WARNING: use this when the commits were not yet pushed to the remote repo!
-# reverting the last commit but keeping the changes
-git reset HEAD~1
-
-# reverting the last commit and the changes
-git reset --hard HEAD~1
 
 
 # misc
