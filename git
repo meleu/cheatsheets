@@ -12,6 +12,14 @@ git push --force origin <branchname>
 
 # deleting branches
 ###################################################
+# remove local branches which do not exist on the remote
+# tip from: https://gist.github.com/davoam/f32439d2bd786e6a994fe43be4db6b85
+git fetch -p && \
+  LC_ALL=C git branch -vv \
+  | grep ': gone]' \
+  | awk '{print $1}' \
+  | xargs git branch -D 
+
 # Branches: To delete the branch <branch>:
 git branch -D <branch>
 
@@ -42,15 +50,6 @@ git reset --hard origin/master
 
 # create an empty dummy commit
 git commit --allow-empty -m 'dummy commit'
-
-
-# remove local branches which do not exist on the remote
-# tip from: https://gist.github.com/davoam/f32439d2bd786e6a994fe43be4db6b85
-git fetch -p && \
-  LC_ALL=C git branch -vv \
-  | grep ': gone]' \
-  | awk '{print $1}' \
-  | xargs git branch -D 
 
 
 # rename a local branch (mnemonic: -m for "move")

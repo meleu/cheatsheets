@@ -1,3 +1,6 @@
+# crop image from the center
+convert in.jpg -gravity center -crop ${width}x${height}+0+0 out.jpg
+
 # To convert a file from jpg to pdf
 convert original.jpg converted.pdf
 
