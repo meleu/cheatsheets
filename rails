@@ -12,6 +12,8 @@ rails generate controller ${controller_name}
 # check routes
 rails routes
 
+# quick way to return a hello-world JSON from routes.rb
+root to: ->(env) { [200, {'Content-Type' => 'application/json'}, [{ hello: 'world' }.to_json]] }
 
 # create a blog project
 ######################################################################

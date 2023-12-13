@@ -1,17 +1,19 @@
-# commit piece by piece
-git commit -p
-
-# copia fiel do repositorio remoto
-git reset --hard <remote>/<branch_name>
-
-# remove file from git history
-# (remove secrets and/or sensitive data from history)
-git filter-branch --index-filter \
-  'git rm -rf --cached --ignore-unmatch ${path_to_file}' HEAD
+# commit types
+build     - Build related changes
+ci        - CI related changes
+chore     - Build process or auxiliary tool changes
+docs      - Documentation only changes
+feat      - A new feature
+fix       - A bug fix
+perf      - A code change that improves performance
+refactor  - A code change that neither fixes a bug or adds a feature
+revert    - Reverting things
+style     - Markup, white-space, formatting, missing semi-colons...
+test      - Adding missing tests
 
 # undoing commits
 ###################################################
-# ⚠️ WARNING: use this when the commits were not yet pushed to the remote repo!
+# WARNING: use this when the commits were not yet pushed to the remote repo!
 # reverting the last commit but keeping the changes
 git reset HEAD~1
 
@@ -52,7 +54,28 @@ git push --delete origin <branch>
 
 # misc
 ###################################################
-#
+# list the files from HEAD, sorted by size (human readable)
+git ls-tree -r --name-only HEAD | xargs -I{} du -sh {} | sort -h
+
+# list the files from the whole git history, sorted by size
+# https://stackoverflow.com/a/42544963
+git rev-list --objects --all |
+  git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
+  sed -n 's/^blob //p' |
+  sort --numeric-sort --key=2 |
+  cut -c 1-12,41-
+
+# commit piece by piece
+git commit -p
+
+# copia fiel do repositorio remoto
+git reset --hard <remote>/<branch_name>
+
+# remove file from git history
+# (remove secrets and/or sensitive data from history)
+git filter-branch --index-filter \
+  'git rm -rf --cached --ignore-unmatch ${path_to_file}' HEAD
+
 # move your changes to a brand new branch
 git switch -c ${newBranch}
 
@@ -74,12 +97,6 @@ git push --delete origin ${oldName}
 # from the community cheatsheet
 ###############################################################################
 
-
-# To stash changes locally, this will keep the changes in a separate changelist
-# called stash and the working directory is cleaned. You can apply changes
-# from the stash anytime
-git stash
-
 # To stash changes with a message:
 git stash push -m <message>
 
@@ -92,9 +109,6 @@ git stash pop
 # To apply any stash from the list of stashes. This does not remove the stash
 # from the stash list
 git stash apply stash@{6}
-
-# To commit staged changes:
-git commit -m <message>
 
 # To edit previous commit message:
 git commit --amend

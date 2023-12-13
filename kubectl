@@ -1,3 +1,9 @@
+# set the default context
+kubectl config use-context ${contextName}
+
+# see the list of contexts
+kubectl config get-contexts
+
 # jsonpath to list the name of Evicted pods
 kubectl get pods \
   -o jsonpath='{.items[?(@.status.reason == "Evicted")].metadata.name}'

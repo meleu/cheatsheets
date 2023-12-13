@@ -3,6 +3,7 @@ syntax: ruby
 tags: [ rails, test, ruby ]
 ---
 # link: https://github.com/teamcapybara/capybara#the-dsl
+# another cheatsheet: https://gist.github.com/tomas-stefano/6652111
 
 # NOTE: searches are case sensitive.
 

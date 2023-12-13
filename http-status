@@ -23,8 +23,8 @@
 ######################################################################
 
 400 Bad Request
-401 Unauthorized
-403 Forbidden
+401 Unauthorized - it actually means "Unauthenticated"
+403 Forbidden - actually means "Authenticated but Permission Denied"
 404 Not Found
 405 Method Not Allowed
 422 Unprocessable Content
@@ -44,7 +44,7 @@
 # 3xx - Redirection messages
 ######################################################################
 
-301 Moved Permanently
-
+301 Moved Permanently - permanently moved to URL in 'Location' header
+302 Found - temporarily moved to URL in 'Location' header
 
 
