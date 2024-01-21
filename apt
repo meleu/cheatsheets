@@ -1,6 +1,9 @@
 ---
 tags: [ packaging ]
 ---
+# clean cache
+sudo apt clean
+
 # To find packages matching <phrase>:
 apt search <phrase>
 

@@ -1,6 +1,8 @@
 ---
 tags: [ compression ]
 ---
+NOTE: do NOT 7z use for backups (it does not store file ownership).
+
 7z [Args] [archive.7z] [files / folders to archive]
 
 Args:
@@ -12,7 +14,6 @@ t       test
 u       update
 x       extract with full paths
 
-NOTE: do NOT use for backups (it does not store file ownership).
 
 On Linux/Unix, in order to backup directories you must use tar :
   - to backup a directory  : tar cf - directory | 7z a -si directory.tar.7z
