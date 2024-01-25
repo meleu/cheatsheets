@@ -34,3 +34,16 @@ m # make dot match newlines
 x # ignore whitespace in regex
 o # perform #{...} substitutions only once
 
+# Pry REPL - https://pry.github.io/
+#######################################################################
+# install
+gem install pry
+
+# make irb run Pry
+# put this in ~/.irbc
+######################
+require 'rubygems'
+require 'pry'
+Pry.start
+exit
+######################

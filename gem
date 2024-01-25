@@ -1,29 +1,47 @@
 ---
 tags: [ packaging, ruby ]
 ---
-# To search for a package:
+# search
 gem search <package>
 
-# To install a package:
+# install
 gem install <package>
 
-# To install a package in user space:
+# using a installed gem
+# go to IRB and then:
+require 'gem-name'
+# you're ready to use the gem
+
+# install a package in user space:
 gem install --user-install <package>
 
-# To install specific version of a package:
+# install specific version of a package:
 gem install <package> -v <version>
 
-# To uninstall a package:
+# uninstall a package:
 gem uninstall <package>
 
-# To upgrade a package:
+# upgrade a package:
 gem update <package>
 
-# To show details of a package:
+# remove old versions
+gem cleanup <package>
+
+# check which versions would be deleted
+gem cleanup --dry-run
+
+# show details of a package:
 gem info <package>
 
-# To list local packages:
+# list local packages:
 gem list --local
 
-# To show help on command:
+# list remote gems
+gem list <search_term> --remote
+
+# all versions
+gem list <search_term> --remote --all
+
+# show help on command:
 gem help <command>
+

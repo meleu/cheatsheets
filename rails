@@ -1,16 +1,15 @@
+# list rails tasks
+rails -T
+rails -T <term>
+
+# install specific rails version
+gem install rails -v 5.2.0
+gem install rails --version 5.2.0
+
 # create new app (no ActiveStorage and no Action MailBox)
 rails new ${app_name} \
   --skip-active-storage \
   --skip-action-mailbox
-
-# launch the server
-rails server
-
-# generate a new controller
-rails generate controller ${controller_name}
-
-# check routes
-rails routes
 
 # quick way to return a hello-world JSON from routes.rb
 root to: ->(env) { [200, {'Content-Type' => 'application/json'}, [{ hello: 'world' }.to_json]] }

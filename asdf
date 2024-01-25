@@ -9,17 +9,16 @@ echo 'source "${HOME}/.asdf/completions/asdf.bash"' >> ~/.bashrc
 # list all available plugins
 asdf plugin list-all
 
-# list all available versions of a plugin ("language")
-asdf list-all "$plugin"
+# add a plugin
+asdf plugin add "$plugin"
 
 # list installed plugins ("languages") and versions
 asdf list [plugin]
 
-# add a plugin
-asdf plugin add "$plugin"
+# list all available versions of a plugin ("language")
+asdf list-all "$plugin"
 
 # install a specific version 
-asdf list-all "$plugin" # choose the version
 asdf install "$plugin" "$version"
 
 # define the global version
