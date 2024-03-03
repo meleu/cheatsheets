@@ -1,3 +1,8 @@
+# Non-string fields use the := separator, which allows you to embed raw
+# JSON into the resulting object. Text and raw JSON files can also be
+# embedded into fields using =@ and :=@:
+http PUT api.example.com/person/1 name=John age:=29 married:=false hobbies:='["http", "pies"]' description=@about-john.txt bookmarks:=@bookmarks.json
+
 # Custom HTTP method HTTP headers and JSON data:
 http PUT example.org X-API-Token:123 name=John
 
@@ -29,11 +34,6 @@ http localhost:8000 Host:example.com
 
 # Simple JSON example:
 http PUT example.org name=John email=john@example.org
-
-# Non-string fields use the := separator, which allows you to embed raw
-# JSON into the resulting object. Text and raw JSON files can also be
-# embedded into fields using =@ and :=@:
-http PUT api.example.com/person/1 name=John age:=29 married:=false hobbies:='["http", "pies"]' description=@about-john.txt bookmarks:=@bookmarks.json
 
 # Send JSON data stored in a file:
 http POST api.example.com/person/1 < person.json

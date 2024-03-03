@@ -2,6 +2,12 @@
 rails -T
 rails -T <term>
 
+# launch the server using specific environment configs
+rails server -e <environment>
+
+# having a better rails console
+bundle add pry-rails
+
 # install specific rails version
 gem install rails -v 5.2.0
 gem install rails --version 5.2.0

@@ -9,6 +9,8 @@
 
 # RFC 9110
 # https://httpwg.org/specs/rfc9110.html#overview.of.status.codes
+# Status Codes in Rails
+# https://guides.rubyonrails.org/layouts_and_rendering.html#the-status-option
 
 
 # 2xx - Successful responses
