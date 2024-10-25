@@ -1,0 +1,11 @@
+### godoc and the PATH
+
+```
+# installing local documentation
+go install golang.org/x/tools/cmd/godoc@latest
+
+# after installing the godoc command isn't available
+# in the path! I had to call it via:
+~/.asdf/installs/golang/1.21.7/packages/bin/godoc -http :8000
+```
+

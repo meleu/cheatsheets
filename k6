@@ -1,3 +1,7 @@
+# define a ramping load test
+# go from 0 to 100 VUs in 1 minute
+k6 run --vus 0 --stage 1m:100 script.js
+
 # from: https://k6.io/docs/using-k6/metrics/reference/
 
 Metric Name (type)       | Description

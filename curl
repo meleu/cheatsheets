@@ -1,5 +1,5 @@
-# To download a file:
-curl <url>
+# To get only the HTTP status code:
+curl -o /dev/null -w '%{http_code}\n' -s -I URL
 
 # To download and rename a file:
 curl <url> -o <outfile>
@@ -36,6 +36,3 @@ curl --limit-rate 1000B -O <outfile>
 
 # To get your global IP:
 curl httpbin.org/ip 
-
-# To get only the HTTP status code:
-curl -o /dev/null -w '%{http_code}\n' -s -I URL

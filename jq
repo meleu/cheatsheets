@@ -1,3 +1,6 @@
+# parse only JSON content and ignore the rest
+jq -R 'fromjson? | select(type == "object")'
+
 # minify
 jq --compact-output input.json
 

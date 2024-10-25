@@ -47,3 +47,20 @@ require 'pry'
 Pry.start
 exit
 ######################
+
+# performance proof of different string concatenation methods
+#!/usr/bin/env ruby
+
+require 'benchmark'
+
+Benchmark.bmbm do |x|
+  x.report('+= :') do
+    s = ""
+    10000.times { s += "something " }
+  end
+  x.report('<< :') do
+    s = ""
+    10000.times { s << "something " }
+  end
+end
+
