@@ -3,6 +3,10 @@
 # how to increase the amount of time the pane
 # numbers are shown when <prefix>q?
 #
+##################################################
+
+# Rename current window's name
+<prefix> ,
 
 # To reload configuration file
 <prefix> : source-file /path/to/file

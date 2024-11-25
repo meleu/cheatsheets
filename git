@@ -1,15 +1,18 @@
+# show the diff of the latest commit
+git show HEAD
+
 # commit types
-build     - Build related changes
-ci        - CI related changes
-chore     - Build process or auxiliary tool changes
-docs      - Documentation only changes
-feat      - A new feature
-fix       - A bug fix
-perf      - A code change that improves performance
-refactor  - A code change that neither fixes a bug or adds a feature
-revert    - Reverting things
-style     - Markup, white-space, formatting, missing semi-colons...
-test      - Adding missing tests
+build    - Build related changes
+ci       - CI related changes
+chore    - Build process or auxiliary tool changes
+docs     - Documentation only changes
+feat     - A new feature
+fix      - A bug fix
+perf     - A code change that improves performance
+refactor - A code change that neither fixes a bug or adds a feature
+revert   - Reverting things
+style    - Markup, white-space, formatting, missing semi-colons...
+test     - Adding missing tests
 
 # undoing commits
 ###################################################
@@ -89,7 +92,7 @@ git commit --allow-empty -m 'dummy commit'
 # rename a local branch (mnemonic: -m for "move")
 git branch -m ${oldName} ${newName}
 
-# rename a remote branch (actually create a new branch and dele the old one)
+# rename a remote branch (actually create a new branch and delete the old one)
 git push --set-upstream origin ${newName}
 git push --delete origin ${oldName}
 
