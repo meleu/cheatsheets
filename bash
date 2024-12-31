@@ -1,3 +1,4 @@
+```bash
 ###############################################################################
 # useful for all bash scripts
 ###############################################################################
@@ -81,3 +82,4 @@ ${parameter/#pat/string} # As above, but matched against the beginning.
 ${parameter/%pat/string} # As above, but matched against the end.
                     # Useful for adding a common suffix with a null pattern. 
 
+```

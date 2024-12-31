@@ -1,0 +1,23 @@
+#######################################################################
+# in the terminal
+#######################################################################
+# connect to the default host (127.0.0.1:27017)
+mongosh
+
+# connect to a specific port
+mongosh --port <custom-port>
+
+# passing credentials
+mongosh -u <username> -p <password>
+
+#######################################################################
+# in the mongosh prompt
+#######################################################################
+# show all databases
+show dbs
+
+# using a specific db
+use <db-name>
+
+# show the ~~tables~~ collections inside a db
+show collections

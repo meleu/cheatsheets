@@ -1,0 +1,32 @@
+## Bashly "Rules"
+
+- `src/*.sh` are the subcommands
+  - they need to be specified in the `src/bashly.yml`.
+  - their code is going to be wrapped in a function.
+  - if you want to use functions, declare them in `src/lib/*.sh` files.
+
+- `src/lib/*.sh`
+  - put your functions in these files
+  - the file contents are going to be put in the top-level scope (therefore avoid commands outside functions)
+
+- validators:
+  - they go in `src/lib/validators/*.sh`
+  - functions must be named with the `validate_` prefix
+  - input is valid if the `validate_*` function generates no output
+
+## My practices
+
+- `bashly-settings.yml`
+  - `var_aliases.args: ARGS`
+  - `strict: "set -Eeo pipefail"`
+
+- `src/lib/custom_commands.sh`
+  - this is where I put my custom commands (e.g.: `curl --silent --location`)
+  - a custom commands is always inside a function like `cmd_<command-name>`
+    - example: `cmd_curl()`
+
+```bash
+#!/usr/bin/env bash
+
+echo "Hello, World!"
+```
