@@ -1,3 +1,47 @@
+#######################################################################
+# tips from https://www.youtube.com/watch?v=6uB65PdasQI&t=104s
+#######################################################################
+# another useful article:
+# https://opensource.com/article/17/6/ffmpeg-convert-media-file-formats
+#######################################################################
+
+# mp4 to gif
+#######################################################################
+# tips:
+# - '-vf' stands for 'video filter' 
+# - the '-1' in scale exist to keep aspect ratio
+ffmpeg -i $input_mp4 \
+  -vf "fps=10,scale=920:-1:flags=lanczos" \
+  -c:v gif \
+  $output_gif
+
+# shrink an image
+#######################################################################
+# again, '-1' to keep aspect ratio
+ffmpeg -i $input_png -vf scale=800:-1 $output_jpg
+
+# extract audio from video
+#######################################################################
+# '-vn' stands for 'video no', or 'no video'
+ffmpeg -i $input_mp4 -vn -acodec mp3 $output_mp3
+
+# compress video
+#######################################################################
+# - '-crf' stands for "Constant Rate Factor"
+#   - 0 means high-quality & larger files
+#   - 32 is a common default
+ffmpeg -i $input_mp4 \
+  -vcodec libx264 \
+  -crf 23 \
+  -preset fast \
+  $output_mp4
+
+# add text to a video
+#######################################################################
+ffmpeg -i $input_mp4 \
+  -vf "drawtext=text='Whats up everybody?':fontcolor=white:fontsize=24:x=10:y=10"
+
+#######################################################################
 # To print file metadata:
 ffmpeg -i <file>
 

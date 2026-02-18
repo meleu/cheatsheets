@@ -1,0 +1,21 @@
+User ID para testes:
+1029384
+
+Testando no console da gem:
+```ruby
+client = CodaShop::Topup::Client.new
+
+# listando SKUs de Free Fire
+client.products.list_skus('v2/free-fire')
+
+# validando subtipo 1
+validate_params = {\
+  sku: "SKUB1_BRL",\
+  quantity: 1,\
+  customer_id: "TEST_CUSTOMER",\
+  price: { amount: 10, currency: "BRL" },\
+  user_account: {user_id: "1029384"}\
+}
+client.products.validate('v2/free-fire', validate_params)
+
+```

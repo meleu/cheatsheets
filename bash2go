@@ -1,0 +1,58 @@
+## basename $fullpath
+
+```go
+filepath.Base(fullpath)
+```
+
+## mktemp "${dir}/tmpfile.XXXXXX"
+
+```go
+os.CreateTemp(dir, "tempfile.*")
+```
+
+## curl $url
+
+```go
+func httpGet(url string) string {
+	resp, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	respBytes, _ := io.ReadAll(resp.Body)
+    return string(respBytes)
+}
+```
+
+## xdg-open $filename
+
+```go
+func preview(filename string) error {
+	var command string
+	arguments := []string{}
+
+	// Define executable based on OS
+	switch runtime.GOOS {
+	case "linux":
+		command = "xdg-open"
+	case "windows":
+		command = "cmd.exe"
+		arguments = []string{"/C", "start"}
+	case "darwin":
+		command = "open"
+	default:
+		return fmt.Errorf("OS not supported")
+	}
+
+	arguments = append(arguments, filename)
+
+	// Locate executable in PATH
+	commandPath, err := exec.LookPath(command)
+	if err != nil {
+		return err
+	}
+
+	return exec.Command(commandPath, arguments...).Run()
+}
+```

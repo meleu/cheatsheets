@@ -1,3 +1,11 @@
+# CopilotChat tips
+# Installed with by LazyExtras
+:CopilotChatModels -> pick a LLM
+
+# in CopilotChat buffer
+gh -> show CopilotChat keybindings
+$<model> -> select a model
+
 # required
 mv ~/.config/nvim ~/.config/nvim.bak
 
@@ -5,3 +13,10 @@ mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
+
+# dadbod with sqlite
+# connection string
+sqlite:relative/path/to/db.sqlite
+
+# tpope's rails plugin
+:R # view <--> controller

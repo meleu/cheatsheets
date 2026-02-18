@@ -1,0 +1,2 @@
+# read DOT code from stdin and generate a file named out.png?
+dot -Tpng -o out.png

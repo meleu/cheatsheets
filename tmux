@@ -4,6 +4,9 @@
 # numbers are shown when <prefix>q?
 #
 ##################################################
+#
+# convert a pane into a window
+<prefix> !
 
 # Rename current window's name
 <prefix> ,
@@ -25,9 +28,6 @@
 
 # zoom a pane
 <prefix> z
-
-# convert a pane into a window
-<prefix> !
 
 # To kill a pane:
 <prefix> x

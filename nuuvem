@@ -1,0 +1,30 @@
+# Loja
+######################################################################
+# Cupom de desconto 100% (testes)
+ZTORM
+
+
+# Codashop
+######################################################################
+# user ID de testes
+1029384
+
+
+# Slack
+######################################################################
+# ID do @dev
+SLACK_GROUP_DEV="S1JUN91AR"
+SLACK_GROUP_DEV_STORE="S0972DEF0KW"
+
+# canal #log_dev_errors
+SLACK_CHANNEL_PRODUCTION='G03U59R7L'
+# canal #log_dev_staging
+SLACK_CHANNEL_STAGING='C01PRDNALA0'
+
+# Blackhawk
+######################################################################
+# Lugar para ver se os arquivos foram gerados/enviados pela BHN
+https://bhndysh.blackhawk-net.com/
+
+# Reprocessar quando receber notificação de "Recon Files - ?? is missing"
+Blackhawk::ProcessStatementFileWorker.perform_async("ANO-MES-DIA")

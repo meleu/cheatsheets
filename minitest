@@ -80,7 +80,7 @@ class AssertionsTest < Minitest::Test
 
     # Exceptions
     error = assert_raises(ZeroDivisionError) { 5 / 0 }
-    assert_equal error.message, 'divided by 0'
+    assert_equal 'divided by 0', error.message
 
     # Output
     assert_output("0.09999999999999998\n") { puts calculation }

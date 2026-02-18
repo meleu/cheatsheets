@@ -1,9 +1,18 @@
+# view notes - comments beginning with TODO, FIXME, OPTIMIZE, HACK, REVIEW, or NOTE
+rails notes
+
+# view stats (lines of code, etc.)
+rails stats
+
 # list rails tasks
 rails -T
 rails -T <term>
 
 # launch the server using specific environment configs
 rails server -e <environment>
+
+# launch server with specific port
+rails server -p <port>
 
 # having a better rails console
 bundle add pry-rails
@@ -19,6 +28,24 @@ rails new ${app_name} \
 
 # quick way to return a hello-world JSON from routes.rb
 root to: ->(env) { [200, {'Content-Type' => 'application/json'}, [{ hello: 'world' }.to_json]] }
+
+# code generation
+######################################################################
+# scaffold
+rails g scaffold ResourceName attribute1:type attribute2:type
+
+# model
+rails g model ResourceName attribute1:type attribute2:type
+
+# controller
+rails g controller ControllerName action1 action2
+
+# channel
+rails g channel ResourceName
+
+# job
+rails g job ResourceName
+
 
 # create a blog project
 ######################################################################
@@ -38,5 +65,4 @@ rails console --sandbox # to play with the model
 # post.errors.message
 
 rails generate controller BlogPosts
-
 

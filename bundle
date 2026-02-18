@@ -1,0 +1,38 @@
+# install gems from Gemfile
+bundle install
+
+# Update gems from Gemfile
+bundle update
+
+# Update a specific gem in Gemfile
+bundle update <gem_name>
+
+
+# Show outdated gems in Gemfile
+bundle outdated
+
+# Show a gem's path (which includes version number and gemset via path)
+bundle show <gem_name>
+
+# Create new gem's structure
+bundle gem <gem_name>
+
+# Gemfile Syntax
+#######################################################################
+# specify versions
+gem 'gem_name', '5.1.6' # exact version
+gem 'gem_name', '>= 5.1.6' # minimum version (5.1.6, 5.2, 6.0, ...)
+gem 'gem_name', '~> 5.1.6' # same as '>= 5.1.6', '< 5.2'
+
+# specify groups
+gem 'rspec-rails', group: 'test'
+
+group :development do
+  gem 'better-errors'
+end
+
+# specify source
+gem 'rails', github: 'rails/rails' # from GitHub
+gem 'rails', github: 'rails/rails', branch: 'main' # from specific branch
+
+#######################################################################

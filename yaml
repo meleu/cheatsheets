@@ -1,0 +1,7 @@
+# YAML spec:
+# https://yaml.org/spec/1.2.2/
+
+# from: https://smcleod.net/2022/11/yaml-anchors-and-aliases/
+- `&` - Anchors, used to define a value
+- `<<:` - Overrides used to merge values
+    - `*` - Aliases used to reference a value

@@ -1,0 +1,12 @@
+# ec2 provisioning logs (user data script)
+/var/log/cloud-init-output.log
+
+# check gitlab-runner logs
+sudo journalctl -u gitlab-runner
+
+# check if there's a CI job running
+ps aux | grep "[g]itlab-runner -c bash -l"
+
+# register with gitlab.com
+sudo /usr/local/scripts/register_and_start_runner
+

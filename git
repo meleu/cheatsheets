@@ -1,6 +1,11 @@
 # show the diff of the latest commit
 git show HEAD
 
+# show the latest commit short SHA
+git rev-parse --short HEAD
+
+# Conventional Commits <https://www.conventionalcommits.org/>
+###################################################
 # commit types
 build    - Build related changes
 ci       - CI related changes
@@ -35,7 +40,15 @@ git rebase -i <hash_of_commit_before_first_commit>
 # 4. force push
 git push --force origin <branchname>
 
-# deleting branches
+# squashing commits non-interactively
+###################################################
+# 1. Reset to the target commit while keeping the changes
+git reset --soft 1234abcd
+# 2. Create a new commit:
+git commit -m "Your commit message"
+
+
+# delete branches
 ###################################################
 # remove local branches which do not exist on the remote
 # tip from: https://gist.github.com/davoam/f32439d2bd786e6a994fe43be4db6b85
@@ -278,3 +291,33 @@ git config user.signingkey [KEYID]
 
 # Set signing of commits globally
 git config --global commit.gpgsign true
+
+######################################################################
+# git bisect
+######################################################################
+#!/bin/bash
+# Below is a simple bash script that uses git bisect to find
+# the commit where a given command starts failing. You need to
+# provide two commit hashes and the command to test.
+
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 <good_commit> <bad_commit> <test_command>"
+    exit 1
+fi
+
+GOOD_COMMIT=$1
+BAD_COMMIT=$2
+TEST_COMMAND=$3
+
+# Start the bisect process
+git bisect start
+git bisect good $GOOD_COMMIT
+git bisect bad $BAD_COMMIT
+
+# Define the test script for bisect
+git bisect run bash -c "$TEST_COMMAND"
+
+# End the bisect process
+git bisect reset
+######################################################################

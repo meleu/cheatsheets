@@ -1,11 +1,50 @@
-### godoc and the PATH
+## Go way of "toString"
 
+Your type just need to adhere to the [Stringer interface](https://pkg.go.dev/fmt#Stringer)
+
+```go
+// example:
+type Quotation struct {
+	quote  string
+	author string
+}
+
+func (q Quotation) String() string {
+	return fmt.Sprintf("%s says, %q.", q.author, q.quote)
+}
 ```
-# installing local documentation
-go install golang.org/x/tools/cmd/godoc@latest
 
-# after installing the godoc command isn't available
-# in the path! I had to call it via:
-~/.asdf/installs/golang/1.21.7/packages/bin/godoc -http :8000
+## reading lines from the user
+
+```go
+// NOTE: I learned that Scanln (by default) reads only the first word
+// if the string has spaces.
+var str string
+fmt.Scanln(&str)
+
+// NOTE: this method reads the whole line, but keeps the '\n' char.
+reader := bufio.NewReader(os.Stdin)
+str, _ := reader.ReadString('\n')
+
+// NOTE: this is the one to be used! :)
+scanner := bufio.NewScanner(os.Stdin)
+scanner.Scan()
+str := scanner.Text()
 ```
 
+## if short statement
+
+```go
+func pow(x, n, lim float64) float64 {
+
+  // v is only available inside the if and else blocks
+  if v := math.Pow(x, n); v < lim {
+    return v
+  } else {
+    fmt.Printf("%g >= %g\n", v, lim)
+  }
+
+  // can't use v here, though
+  return lim
+}
+```

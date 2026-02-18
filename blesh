@@ -1,0 +1,6 @@
+# From:
+# https://github.com/akinomyoga/ble.sh?tab=readme-ov-file#33-use-auto-complete
+
+<C-f> or <End> to accept suggestion
+<M-f> or <M-right> to accept word by word.
+

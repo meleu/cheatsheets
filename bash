@@ -1,5 +1,15 @@
 ```bash
 ###############################################################################
+# XDG Base Directory Specification
+# https://specifications.freedesktop.org/basedir-spec/latest/
+# User-specific directories for...
+###############################################################################
+XDG_DATA_HOME # data files, e.g.: ~/.local/share
+XDG_CONFIG_HOME # configuration files, e.g.: ~/.config
+XDG_CACHE_HOME # non-essential (cached) data, e.g.: ~/.cache
+XDG_STATE_HOME # state data, e.g.: ~/.local/state
+
+###############################################################################
 # useful for all bash scripts
 ###############################################################################
 #!/usr/bin/env bash
@@ -43,6 +53,17 @@ PS4='+$BASH_SOURCE:$LINENO:$FUNCNAME: '
 # go inside function calls):
 debug_prompt () { read -p "[$BASH_SOURCE] $BASH_COMMAND?" _ ;}
 trap 'debug_prompt "$_"' DEBUG
+
+
+###############################################################################
+# expanding an array
+###############################################################################
+# expands each item as a separate string separated with a space
+${myArray[@]}
+
+# expands all items in a single string with all items separated by
+# the first character in `IFS`
+${myArray[*]}
 
 
 ###############################################################################

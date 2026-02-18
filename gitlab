@@ -30,7 +30,7 @@ CI_PIPELINE_URL       URL for pipeline details
 
 CI_PROJECT_ID
 
-CI_PROJECT_NAME
+CI_PROJECT_NAME       if URL gitlab.example.com/group-name/project-1, then: project-1
 
 GITLAB_USER_NAME      "Meleu Zord"
 
