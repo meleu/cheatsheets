@@ -1,3 +1,7 @@
+# Create a new branch with a blank commit history
+git checkout --orphan new-branch-name
+# NOTE: the new branch has no commit history, but your files are present.
+
 # show the diff of the latest commit
 git show HEAD
 
